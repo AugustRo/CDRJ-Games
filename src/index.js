@@ -13,7 +13,7 @@ app.use(morgan('dev'));
 //Variables globales
 
 //Rutas
-
+app.use(require('./routes'));
 //Archivos publicos
 
 //Comenzar servidor
