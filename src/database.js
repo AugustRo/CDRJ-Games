@@ -20,7 +20,8 @@ pool.getConnection((err, connection) => {
     console.log('La database esta conectada');
     return;
 });
-//Promesas Pool Query
+//Para poder utilizar promesas
+//Callbacks -> Promises
 
 pool.query = promisify(pool.query);
 
