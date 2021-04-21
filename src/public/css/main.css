@@ -1,0 +1,100 @@
+
+@font-face{
+  font-family: roboto_bold;
+  src: url(Roboto-Bold.ttf)
+  
+  }
+ 
+      @font-face{
+        font-family: Abc;
+        src: url(SyneTactile-Regular.ttf)
+        
+        }
+      @font-face{
+          font-family: logo;
+          src: url(PermanentMarker-Regular.ttf);
+      }
+      @font-face{
+        font-family: slogan;
+        src: url(Parisienne-Regular.ttf);
+    }
+      @font-face{
+  
+          font-family: blabla;
+          src: url(BadScript-Regular.ttf);
+      }
+      @font-face{
+          font-family:  blablabla;
+          src: url(ConcertOne-Regular.ttf);
+      }
+      @font-face{
+          font-family: Encabezados;
+          src: url(Monoton-Regular.ttf);
+      }
+
+.slider .btn {
+  margin-top: 20px;
+}
+
+.section-search input {
+  padding: 5px !important;
+  font-size: 18px !important;
+  width: 90%;
+  border: #f4f4f4 3px solid !important;
+}
+
+.autocomplete-content {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.section-follow .fa-4x {
+  margin: 5px 10px;
+}
+
+.section-contact h5 {
+  margin-bottom: 30px;
+}
+
+.buscarArt{
+font-size: 50px;
+font-family: slogan;
+}
+
+.encabezado{
+font-family: roboto-bold;
+}
+.informacion{
+font-family:blablabla;
+
+}
+
+.Abc{
+  font-family: Abc;
+  font-size: 40px;
+}
+
+.logo{
+  font-family: logo;
+  font-size: 60px;
+  color: #3656AF;
+}
+.blablabla{
+  font-family: blablabla;
+}
+
+.Encabezados{
+  font-family: Encabezados;
+}
+
+.blabla{
+  font-family: blabla;
+  color: #3656AF;
+}
+.logochiquito{
+
+  font-family: logo;
+  font-size: 30px;
+  color: #3656AF;
+}
