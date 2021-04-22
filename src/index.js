@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
-const path = require('path')
+const path = require('path');
 
 //Inicializar
 const app = express();
@@ -32,6 +32,7 @@ app.use((req,res, next) => {
 app.use(require('./routes'));
 app.use(require('./routes/authentication'));
 app.use('/juegos',require('./routes/juegos'));
+app.use('/login',require('./routes/login'));
 
 //Archivos publicos
 app.use(express.static(path.join(__dirname,'public')));
