@@ -3,15 +3,16 @@ const router = express.Router();
 //Conexion a la BD
 const pool = require('../database');
 
-router.get('/',(req, res) => {
-    res.render('juegos/add');
+router.get('/add',(req, res) => {
+    res.render('user/signup');
 });
 
-router.post('/',(req, res) => {
+router.post('/add',(req, res) => {
   res.send('recibido');
 });
-router.get('/add', (req, res) => {
-    res.render('user/login.hbs');
+
+router.get('/', (req, res) => {
+  res.render('user/signup.hbs');
 });
 
 module.exports = router;
