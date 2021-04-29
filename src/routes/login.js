@@ -7,7 +7,7 @@ router.get('/',(req, res) => {
     res.render('user/login');
 });
 
-router.post('/login',(req, res) => {
+router.post('/user',(req, res) => {
   res.send('recibido');
 });
 router.get('/add', (req, res) => {
