@@ -19,7 +19,7 @@ router.post('/add', async (req, res) => {
     console.log(newUser);
     
     await pool.query('INSERT INTO users set ?', [newUser]);
-  res.send('recibido');
+    res.render('index');
 });
 
 router.get('/', (req, res) => {
