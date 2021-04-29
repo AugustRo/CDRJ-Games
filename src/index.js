@@ -34,6 +34,7 @@ app.use(require('./routes/authentication'));
 app.use('/juegos',require('./routes/juegos'));
 app.use('/login',require('./routes/login'));
 app.use('/signup',require('./routes/signup'));
+app.use('/mi_lista', require('./routes/mi_lista'));
 //Archivos publicos
 app.use(express.static(path.join(__dirname,'public')));
 
