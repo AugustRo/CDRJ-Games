@@ -1,37 +1,22 @@
-CREATE DATABASE database_links;
+CREATE DATABASE database_CDJR_GAMES;
 
-USE database_links;
+USE database_CDJR_GAMES;
 
-CREATE TABLE users(
-    id INT(11) NOT NULL,
-    username VARCHAR(16) NOT NULL,
-    password VARCHAR(60) NOT NULL,
-    fullname VARCHAR(100) NOT NULL    
-);
-
-ALTER TABLE users
-    ADD PRIMARY KEY (id);
-
-    
-ALTER TABLE users
-    MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
-
-DESCRIBE users;
 -- enlaces
-CREATE TABLE links (
+CREATE TABLE users (
     id INT(11) NOT NULL,
-    title VARCHAR (150) NOT NULL,
-    url VARCHAR(255) NOT NULL,
-    description TEXT,
-    user_id INT(11),
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id)
+    nombre VARCHAR (150) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    passw VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-ALTER TABLE links
+ALTER TABLE users
     ADD PRIMARY KEY (id);
 
-ALTER TABLE links
+ALTER TABLE users
     MODIFY id INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
     

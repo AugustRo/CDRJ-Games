@@ -7,8 +7,18 @@ router.get('/add',(req, res) => {
     res.render('user/signup');
 });
 
-router.post('/add',(req, res) => {
-    console.log(req.body);
+router.post('/add', async (req, res) => {
+    const {nombre, apellido, username, email, passw} = req.body;
+    const  newUser = {
+    nombre,
+    apellido,
+    username,
+    email, 
+    passw  
+    };
+    console.log(newUser);
+    
+    await pool.query('INSERT INTO users set ?', [newUser]);
   res.send('recibido');
 });
 
