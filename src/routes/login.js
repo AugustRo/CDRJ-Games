@@ -4,10 +4,10 @@ const router = express.Router();
 const pool = require('../database');
 
 router.get('/',(req, res) => {
-    res.render('juegos/add');
+    res.render('user/login');
 });
 
-router.post('/',(req, res) => {
+router.post('/login',(req, res) => {
   res.send('recibido');
 });
 router.get('/add', (req, res) => {
