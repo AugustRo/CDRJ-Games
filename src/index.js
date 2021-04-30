@@ -2,9 +2,13 @@ const express = require('express');
 const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
+const fileUpload = require('express-fileupload');
 
 //Inicializar
 const app = express();
+app.use(fileUpload({
+    createParentPath: true
+}));
 
 //Configuraciones
 app.set('port',process.env.PORT || 4000);
