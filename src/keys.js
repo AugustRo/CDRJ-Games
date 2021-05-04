@@ -1,8 +1,8 @@
 module.exports = {
     database:{
     host:'localhost', 
-    user: '',
+    user: 'root',
     password: '',
-    database: 'database_links'
+    database: 'database_cdjr_games'
     }
 }
