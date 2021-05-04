@@ -3,16 +3,8 @@
         <div class="col-md-4 mx-auto">
             <div class="card ">
                 <div class="card-body">
-                    <form action="/../add" method="POST">
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Titulo</label>
-                            <input type="text" class="form-control" name="titulo" placeholder="Nombre del juego" autofocus>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Descipcion</label>
-                            <textarea name="descripcion" rows="2" class="form-control" placeholder="Descripcion"></textarea>
-                        </div>
-                        <div >
+                    <form action="/juegos/add" method="POST" enctype="multipart/form-data">
+                        <div>
                             <input class="form-control" type="file" name="img" required>
                         </div>
                         <div class="mb-3">
