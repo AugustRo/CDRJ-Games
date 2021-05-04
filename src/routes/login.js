@@ -8,6 +8,11 @@ router.get('/',(req, res) => {
 });
 
 router.post('/user',(req, res) => {
+  const {nombre, passw} = req.body;
+  const newLink = {
+    nombre,
+    passw};
+    
   res.send('recibido');
 });
 router.get('/add', (req, res) => {
