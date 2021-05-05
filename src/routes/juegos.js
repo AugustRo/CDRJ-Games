@@ -17,6 +17,7 @@ router.get('/add', (req, res) => {
     res.render('juegos/add');
 });
 router.post('/add',async (req, res) => {
+  console.log(req.files.img);
   try{
     console.log(req.files.img);
     const file= req.files.img;
@@ -49,4 +50,8 @@ router.get('/', async (req, res) => {
     res.render('juegos/list', {games});
 });
 
+router.get('/detalles', async (req, res) => {
+  const games = await pool.query('SELECT * FROM games')
+    res.render('juegos/list', {games});
+});
 module.exports = router;
