@@ -11,9 +11,11 @@ const app = express();
 app.use(fileUpload())
 //Conexion a la BD
 const pool = require('../database');
+const { url } = require('inspector');
 
 //Ruta para entrar en Add juegos
 router.get('/add', (req, res) => {
+  res.render('juegos/add');
     res.render('juegos/add');
 });
 router.post('/add',async (req, res) => {
@@ -28,14 +30,18 @@ router.post('/add',async (req, res) => {
     const allowedextensions= /png|jpeg|jpg/;
     if(!allowedextensions.test(extension)) throw "La extensión del archivo no es soportada";
     if(size > 10000000) throw "El tamaño del archivo debe ser 10MB máximo";
-    const md5 = file.md5;
-    console.log(md5)
-    const URL = "/catalogo/" + md5 + extension;
-    console.log(URL)
+    const name = file.name;
+    console.log(file.name);
+    const nombre = req.body.nombre;
+    const descripcoin = req.body.descripcoin;
+    const URL = "./src/public/catalogo/" + name;
+    const games = await pool.query('INSERT INTO games (nombre,descripcoin,img_url) VALUES ("'+nombre+'","'+descripcoin+'","'+name+'")');
+    console.log(URL);
     util.promisify(file.mv)(URL);
     res.json({
       message:"Archivo subido con exito!",  
     });
+    res.render('catalogo');
   } catch(error) {
 console.log(error)
 res.status(500).json({
