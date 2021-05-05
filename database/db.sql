@@ -32,23 +32,24 @@ CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`comments`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`comments` (
   `id_comment` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `comentario` MEDIUMTEXT NOT NULL,
-  `games-list_id_game` INT(10) UNSIGNED NOT NULL,
-  `games-list_users_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id_comment`, `games-list_id_game`, `games-list_users_id`),
-  INDEX `fk_comments_games-list1_idx` (`games-list_id_game` ASC, `games-list_users_id` ASC) ,
+  `game_id_game` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_comment`, `game_id_game`),
+  INDEX `fk_comments_games-list1_idx` (`game_id_game` ASC) ,
   CONSTRAINT `fk_comments_games-list1`
-    FOREIGN KEY (`games-list_id_game`)
+    FOREIGN KEY (`game_id_game`)
     REFERENCES `database_cdjr_games`.`games` (`id_game`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
+
 
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`genres`
@@ -56,18 +57,18 @@ DEFAULT CHARACTER SET = utf8mb4;
 CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`genres` (
   `id_genres` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
-  `games-list_id_game` INT(10) UNSIGNED NOT NULL,
-  `games-list_users_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id_genres`, `games-list_id_game`, `games-list_users_id`),
+  `game_id_game` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id_genres`, `game_id_game`),
   UNIQUE INDEX `idgenres_UNIQUE` (`id_genres` ASC) ,
-  INDEX `fk_genres_games-list1_idx` (`games-list_id_game` ASC, `games-list_users_id` ASC) ,
+  INDEX `fk_genres_games-list1_idx` (`game_id_game` ASC) ,
   CONSTRAINT `fk_genres_games-list1`
-    FOREIGN KEY (`games-list_id_game`)
+    FOREIGN KEY (`game_id_game`)
     REFERENCES `database_cdjr_games`.`games` (`id_game`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
+
 
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`users`
@@ -84,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`users` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4;
+
 
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`lista`
@@ -109,6 +111,7 @@ CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`lista` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

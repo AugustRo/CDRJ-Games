@@ -4,12 +4,19 @@
             <div class="card ">
                 <div class="card-body">
                     <form action="/juegos/add" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label" aria-placeholder="Nombre del juego">Nombre</label>
+                            <input type="" class="form-control" name="nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" aria-placeholder="Descripción del juego">Descripción</label>
+                             <textarea class="form-control" rows="3" name="descripcoin"></textarea>
+                        </div>
                         <div>
                             <input class="form-control" type="file" name="img" required>
                         </div>
                         <div class="mb-3">
                          <input type="submit" class="btn btn-success btn-block" value="Guardar">
-                         <input type="submit" class="btn btn-success btn-block" value="Guardar">   
                         </div>
                     </form>
                 </div>
