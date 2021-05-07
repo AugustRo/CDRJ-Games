@@ -173,5 +173,56 @@ h1 {
  * Start Bootstrap - Clean Blog v5.0.10 (https://startbootstrap.com/theme/clean-blog)
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/LICENSE)
- */a{color:#212529;transition:all .2s}a:focus,a:hover{color:#0085a1}blockquote{font-style:italic;color:#868e96}.section-heading{font-size:36px;font-weight:700;margin-top:60px}.caption{font-size:14px;font-style:italic;display:block;margin:0;padding:10px;text-align:center;border-bottom-right-radius:5px;border-bottom-left-radius:5px}::-moz-selection{color:#fff;background:#0085a1;text-shadow:none}::selection{color:#fff;background:#0085a1;text-shadow:none}img::-moz-selection{color:#fff;background:0 0}img::selection{color:#fff;background:0 0}img::-moz-selection{color:#fff;background:0 0}#mainNav{position:absolute;border-bottom:1px solid #e9ecef;background-color:#fff;font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif}#mainNav .navbar-brand{font-weight:800;color:#343a40}#mainNav .navbar-toggler{font-size:12px;font-weight:800;padding:13px;text-transform:uppercase;color:#343a40}#mainNav .navbar-nav>li.nav-item>a{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase}@media only screen and (min-width:992px){#mainNav{border-bottom:1px solid transparent;background:0 0}#mainNav .navbar-brand{padding:10px 20px;color:#fff}#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{color:rgba(255,255,255,.8)}#mainNav S
+ */
+a{color:#212529;transition:all .2s}
+a:focus,a:hover{color:#0085a1}
+blockquote{font-style:italic;color:#868e96}
+.section-heading{font-size:36px;font-weight:700;margin-top:60px}
+.caption{font-size:14px;font-style:italic;display:block;margin:0;padding:10px;text-align:center;border-bottom-right-radius:5px;border-bottom-left-radius:5px}
+::-moz-selection{color:#fff;background:#0085a1;text-shadow:none}
+::selection{color:#fff;background:#0085a1;text-shadow:none}
+img::-moz-selection{color:#fff;background:0 0}
+img::selection{color:#fff;background:0 0}
+img::-moz-selection{color:#fff;background:0 0}
+#mainNav{position:absolute;border-bottom:1px solid #e9ecef;background-color:#fff;font-family:'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif}
+#mainNav .navbar-brand{font-weight:800;color:#343a40}
+#mainNav .navbar-toggler{font-size:12px;font-weight:800;padding:13px;text-transform:uppercase;color:#343a40}
+#mainNav .navbar-nav>li.nav-item>a{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+@media only screen and (min-width:992px){#mainNav{border-bottom:1px solid transparent;background:0 0}#mainNav .navbar-brand{padding:10px 20px;color:#fff}#mainNav .navbar-brand:focus,#mainNav .navbar-brand:hover{color:rgba(255,255,255,.8)}}
 /*# sourceMappingURL=styles.css.map */
+
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:30px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
