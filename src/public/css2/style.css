@@ -1,12 +1,21 @@
-/******************************************************************
-  
 
-/* Template default CSS
-/*----------------------------------------*/
-h1 {
-font-size: 50px;
 
+@font-face{
+	font-family: cartoon;
+	src: url(/css/orangejuice2.0.ttf);
+	
 }
+
+h1 {
+font-size: 80px;
+font-family: cartoon;
+}
+
+.hotro {
+font-size: 60px;
+font-family: cartoon;
+}
+
 p {
 	font-size: 15px;
 	font-family: "Mulish", sans-serif;
@@ -891,6 +900,8 @@ ol {
 	border-radius: 5px;
 	position: relative;
 }
+
+
 
 .juegos__details__pic .comment {
 	font-size: 13px;

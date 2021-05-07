@@ -56,9 +56,9 @@ router.get('/', async (req, res) => {
     res.render('juegos/list', {games});
 });
 
-router.get('/detalles', (req, res) => {
-  
-    res.render('juegos/detalles');
+router.get('/detalles', async (req, res) => {
+  const recomendados = await pool.query('SELECT * FROM games')
+    res.render('juegos/detalles', {recomendados});
 });
 
 module.exports = router;
