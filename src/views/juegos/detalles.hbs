@@ -1,8 +1,9 @@
+{{#each game}}
 <div class="container-lg">
             <div class="juegos__details__content">
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="juegos__details__pic set-bg img-fluid" data-setbg="/catalogo/1.jpg">
+                        <div class="juegos__details__pic set-bg img-fluid" data-setbg="/catalogo/{{img_url}}">
                             <div class="comment"><i class="fa fa-comments"></i> 11</div>
                             <div class="view"><i class="fa fa-eye"></i> 9141</div>
                         </div>
@@ -10,7 +11,7 @@
                     <div class="col-lg-9">
                         <div class="juegos__details__text">
                             <div >
-                                <h4>The Legend of Zelda Breath of the Wild</h3>
+                                <h4>{{nombre}}</h3>
                                 <span>Nintendo Switch</span>
                             </div>
                             <div class="juegos__details__rating">
@@ -28,12 +29,7 @@
                                 </div>
                                 <span class=>Valorar</span>
                             </div>
-                            <p>The Legend of Zelda: Breath of the Wild es un videojuego exclusivo de Nintendo, desarrollado,
-                                producido y distribuido por la misma compañía, para las videoconsolas Wii U y Nintendo Switch.
-                                Se trata de la decimo-octava entrega de la saga Zelda, pero también es el primer juego de la popular
-                                 serie para la consola de última generación de Nintendo. El título promete un estilo visual completamente 
-                                 nuevo con el que desmarcarse de todo lo visto hasta el momento con colores muy vivos y llamativos y unos gráficos 
-                                 sorprendentes.</p>
+                            <p>{{descripcoin}}.</p>
                             <div class="juegos__details__widget">
                                 <div class="row">
                                     <div class="col-lg-10 col-md-7">
@@ -55,8 +51,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        {{/each}}
 
- WORK IN PROGRSS
+<!-- WORK IN PROGRSS
                         <div class="col-md-3">
                         <div class="card text-center">
                             <div class="section-title">
