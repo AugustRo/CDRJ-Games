@@ -1,33 +1,40 @@
+{{#each game}}
 <div class="container-lg">
             <div class="juegos__details__content">
                 <div class="row">
                     <div class="col-lg-3">
+<<<<<<< HEAD
                         <div class="juegos__details__pic set-bg img-fluid" data-setbg="/catalogo/1.jpg">
                             
+=======
+                        <div class="juegos__details__pic set-bg img-fluid" data-setbg="/catalogo/{{img_url}}">
+                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
+>>>>>>> 1bfc55839cb41621819cd06c4f4b1d171f8f702e
                         </div>
                     </div>
                     <div class="col-lg-9">
                         <div class="juegos__details__text">
                             <div >
-                                <h4>The Legend of Zelda Breath of the Wild</h3>
+                                <h4>{{nombre}}</h3>
                                 <span>Nintendo Switch</span>
                             </div>
                             <div class="juegos__details__rating">
-                                <div class="rating">
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
+                                 <div class="rate">
+                                    <input type="radio" id="star5" name="rate" value="5" />
+                                    <label for="star5" title="text">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" value="4" />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" value="3" />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" value="2" />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" value="1" />
+                                    <label for="star1" title="text">1 star</label>
                                 </div>
                                 <span class=>Valorar</span>
                             </div>
-                            <p>The Legend of Zelda: Breath of the Wild es un videojuego exclusivo de Nintendo, desarrollado,
-                                producido y distribuido por la misma compañía, para las videoconsolas Wii U y Nintendo Switch.
-                                Se trata de la decimo-octava entrega de la saga Zelda, pero también es el primer juego de la popular
-                                 serie para la consola de última generación de Nintendo. El título promete un estilo visual completamente 
-                                 nuevo con el que desmarcarse de todo lo visto hasta el momento con colores muy vivos y llamativos y unos gráficos 
-                                 sorprendentes.</p>
+                            <p>{{descripcoin}}.</p>
                             <div class="juegos__details__widget">
                                 <div class="row">
                                     <div class="col-lg-10 col-md-7">
@@ -39,7 +46,6 @@
                                             <li><span>Idiomas:</span> Japonés, Inglés, Francés, Alemán, Italiano, Español, Neerlandés, Ruso</li>
                                         </ul>
                                     </div>
-                                   
                                 </div>
                             </div>
                             <div class="juegos__details__btn">
@@ -51,6 +57,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
 </div>
 <h1 class="center col-sm-8"><span class="black-text">Recomendaciones</h1> </span>
 <div class="container">
@@ -74,6 +81,9 @@
 
 
 
+=======
+        {{/each}}
+>>>>>>> 1bfc55839cb41621819cd06c4f4b1d171f8f702e
 
 <!-- WORK IN PROGRESS
                         <div class="col-md-3">
@@ -181,7 +191,7 @@
                 </div>
             </div>
 -->
-             <script src="/js/jquery-3.3.1.min.js"></script>
+        <script src="/js/jquery-3.3.1.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
         <script src="/js/player.js"></script>
         <script src="/js/jquery.nice-select.min.js"></script>
