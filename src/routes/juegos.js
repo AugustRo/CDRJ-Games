@@ -53,17 +53,11 @@ router.get('/', async(req, res) => {
     res.render('juegos/list', { games });
 });
 
-<<<<<<< HEAD
-router.get('/detalles', async (req, res) => {
-  const recomendados = await pool.query('SELECT * FROM games')
-    res.render('juegos/detalles', {recomendados});
-=======
 router.get('/detalles/:id', async(req, res) => {
     id_game = req.params.id;
     const game = await pool.query('SELECT * FROM games WHERE id_game =' + id_game);
     console.log(game);
     res.render('juegos/detalles', { game });
->>>>>>> 1bfc55839cb41621819cd06c4f4b1d171f8f702e
 });
 
 module.exports = router;
