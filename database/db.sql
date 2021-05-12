@@ -23,10 +23,12 @@ USE `database_cdjr_games` ;
 CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games` (
   `id_game` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(150) NOT NULL,
-  `descripcoin` VARCHAR(45) NULL DEFAULT NULL,
+  `descripcoin` MEDIUMTEXT NULL DEFAULT NULL,
   `valoracion` INT(11) NULL DEFAULT NULL,
-  `img_url` VARCHAR(150) NULL DEFAULT NULL,
-  `gamescol` VARCHAR(45) NULL DEFAULT NULL,
+  `img_url` VARCHAR(150) NOT NULL,
+  `lanzamiento` DATE NOT NULL,
+  `jugadores` VARCHAR(50) NULL,
+  `video_link` TINYTEXT CHARACTER SET 'armscii8' NULL,
   PRIMARY KEY (`id_game`),
   UNIQUE INDEX `id_game_UNIQUE` (`id_game` ASC) )
 ENGINE = InnoDB
@@ -57,15 +59,8 @@ DEFAULT CHARACTER SET = utf8mb4;
 CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`genres` (
   `id_genres` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
-  `game_id_game` INT(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`id_genres`, `game_id_game`),
-  UNIQUE INDEX `idgenres_UNIQUE` (`id_genres` ASC) ,
-  INDEX `fk_genres_games-list1_idx` (`game_id_game` ASC) ,
-  CONSTRAINT `fk_genres_games-list1`
-    FOREIGN KEY (`game_id_game`)
-    REFERENCES `database_cdjr_games`.`games` (`id_game`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  PRIMARY KEY (`id_genres`),
+  UNIQUE INDEX `idgenres_UNIQUE` (`id_genres` ASC) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
@@ -107,6 +102,96 @@ CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`lista` (
   CONSTRAINT `fk_lista_games1`
     FOREIGN KEY (`games_id_game`)
     REFERENCES `database_cdjr_games`.`games` (`id_game`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `database_cdjr_games`.`languages`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`languages` (
+  `id_language` INT NOT NULL AUTO_INCREMENT,
+  `language` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id_language`),
+  UNIQUE INDEX `language_UNIQUE` (`language` ASC) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `database_cdjr_games`.`Plataformas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`Plataformas` (
+  `id_plataforma` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NULL,
+  PRIMARY KEY (`id_plataforma`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `database_cdjr_games`.`games_has_genres`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games_has_genres` (
+  `games_id_game` INT(10) UNSIGNED NOT NULL,
+  `genres_id_genres` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`games_id_game`, `genres_id_genres`),
+  INDEX `fk_games_has_genres_genres1_idx` (`genres_id_genres` ASC) ,
+  INDEX `fk_games_has_genres_games1_idx` (`games_id_game` ASC) ,
+  CONSTRAINT `fk_games_has_genres_games1`
+    FOREIGN KEY (`games_id_game`)
+    REFERENCES `database_cdjr_games`.`games` (`id_game`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_games_has_genres_genres1`
+    FOREIGN KEY (`genres_id_genres`)
+    REFERENCES `database_cdjr_games`.`genres` (`id_genres`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `database_cdjr_games`.`games_has_languages`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games_has_languages` (
+  `games_id_game` INT(10) UNSIGNED NOT NULL,
+  `languages_id_language` INT NOT NULL,
+  PRIMARY KEY (`games_id_game`, `languages_id_language`),
+  INDEX `fk_games_has_languages_languages1_idx` (`languages_id_language` ASC) ,
+  INDEX `fk_games_has_languages_games1_idx` (`games_id_game` ASC) ,
+  CONSTRAINT `fk_games_has_languages_games1`
+    FOREIGN KEY (`games_id_game`)
+    REFERENCES `database_cdjr_games`.`games` (`id_game`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_games_has_languages_languages1`
+    FOREIGN KEY (`languages_id_language`)
+    REFERENCES `database_cdjr_games`.`languages` (`id_language`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+-- -----------------------------------------------------
+-- Table `database_cdjr_games`.`games_has_Plataformas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games_has_Plataformas` (
+  `games_id_game` INT(10) UNSIGNED NOT NULL,
+  `Plataformas_id_plataforma` INT NOT NULL,
+  PRIMARY KEY (`games_id_game`, `Plataformas_id_plataforma`),
+  INDEX `fk_games_has_Plataformas_Plataformas1_idx` (`Plataformas_id_plataforma` ASC) ,
+  INDEX `fk_games_has_Plataformas_games1_idx` (`games_id_game` ASC) ,
+  CONSTRAINT `fk_games_has_Plataformas_games1`
+    FOREIGN KEY (`games_id_game`)
+    REFERENCES `database_cdjr_games`.`games` (`id_game`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_games_has_Plataformas_Plataformas1`
+    FOREIGN KEY (`Plataformas_id_plataforma`)
+    REFERENCES `database_cdjr_games`.`Plataformas` (`id_plataforma`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
