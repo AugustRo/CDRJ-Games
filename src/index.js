@@ -3,18 +3,11 @@ const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const fileUpload = require('express-fileupload');
-const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-const MySQLStore = require('express-mysql-session');
 const {database} = require('./keys');
-
-const { database } = require('./keys');
-
-const session = require('express-session');
 const validator = require('express-validator');
 const passport = require('passport');
-const flash = require('connect-flash');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
 

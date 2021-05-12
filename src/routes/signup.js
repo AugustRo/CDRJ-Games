@@ -29,7 +29,8 @@ passport.use('user.signup', new LocalStrategy({
   const result = await pool.query('INSERT INTO users set ?', [newUser]);
 
   newUser.id = result.insertId;
-  return done(null, newUser);
+  return done(null, newUser,req.flash('success','REGISTRO EXITOSO' + newUser.username));
+      
 }));
 
 router.get('/add',(req, res) => {

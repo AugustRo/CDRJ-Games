@@ -23,7 +23,7 @@ passport.use('user.login', new LocalStrategy({
       const validPassword = await helpers.matchPassword(passw, user.passw);
       
       if (validPassword) {
-        done(null, user, req.flash('success','BIENVENIDO ' + user.username));
+        done(null, user, req.flash('success','BIENVENIDO: ' + user.username));
         console.log('LOGIN CORRECTO');
       }else
       {
