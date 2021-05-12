@@ -3,12 +3,15 @@ const morgan = require('morgan');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const fileUpload = require('express-fileupload');
-const { end } = require('./database');
-const fs = require('fs');
-const busboy = require('connect-busboy');
+const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session');
+const {database} = require('./keys');
 
 //Inicializar
 const app = express();
+require('./lib/passport');
 app.use(fileUpload({
     createParentPath: true
 }));
@@ -28,10 +31,24 @@ app.set('view engine', '.hbs');
 //Middleware
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
+
+app.use(session({
+    secret: 'CDJRGAMES',
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore(database)
+}))
+
+//Middleware
+app.use(flash());
 app.use(express.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Variables globales
 app.use((req,res, next) => {
+    app.locals.message = req.flash('message');
+    app.locals.success = req.flash('success');    
     next();
 })
 

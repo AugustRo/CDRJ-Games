@@ -16,7 +16,6 @@ const { url } = require('inspector');
 //Ruta para entrar en Add juegos
 router.get('/add', (req, res) => {
     res.render('juegos/add');
-    res.render('juegos/add');
 });
 router.post('/add', async(req, res) => {
     console.log(req.files.img);
@@ -38,6 +37,7 @@ router.post('/add', async(req, res) => {
         await pool.query('INSERT INTO games (nombre,descripcoin,img_url) VALUES ("' + nombre + '","' + descripcoin + '","' + name + '")');
         console.log(URL);
         util.promisify(file.mv)(URL);
+        req.flash('Exitoso', 'Juego agregado al catálogo de manera exitosa');
         res.render('catalogo');
     } catch (error) {
         console.log(error)
