@@ -10,6 +10,7 @@ const validator = require('express-validator');
 const passport = require('passport');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
+const helmet = require("helmet");
 
 //Inicializar
 const app = express();
@@ -42,6 +43,7 @@ app.use(session({
 }))
 
 //Middleware
+app.use(helmet());
 app.use(flash());
 app.use(express.json());
 app.use(passport.initialize());
