@@ -11,7 +11,8 @@ const passport = require('passport');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
 const helmet = require("helmet");
-
+const fs = require('fs');
+const https = require('https');
 //Inicializar
 const app = express();
 require('./lib/passport');
@@ -81,10 +82,23 @@ app.use('/profile', require('./routes/profile'));
 app.use(express.static(path.join(__dirname,'public')));
 
 //Comenzar servidor
-app.listen(app.get('port'), ()=>{
+// app.listen(app.get('port'), ()=>{
+//     console.log('Servidor en el puerto:',app.get('port'));
+// });
+
+//Servidor HTTPS
+
+https.createServer({
+    key: fs.readFileSync(__dirname + '/'+ 'my_cert.key'),
+    cert: fs.readFileSync(__dirname + '/'+ 'my_cert.crt')
+  }, app).listen(app.get('port'), ()=>{
     console.log('Servidor en el puerto:',app.get('port'));
 });
 
+// app.get('/', function(req, res){
+//     console.log('Hello, I am foo.');
+//     res.render('index');
+// });
 //Variables globales
 app.use((req, res, next) => {
     app.locals.success = req.flash('success');
