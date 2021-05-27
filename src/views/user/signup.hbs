@@ -7,23 +7,23 @@
                     <form action="/signup/add" method="POST">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Nombre/s</label>
-                            <input type="text" class="form-control" name="nombre" placeholder="Escribe tu/s nombre/s porfavor" autofocus>
+                            <input type="text" class="form-control" name="nombre" placeholder="Escribe tu/s nombre/s" pattern="[A-Za-z ]{1,100}" autofocus required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" name="apellido" placeholder="Escribe tus apellidos porfavor" autofocus>
+                            <input type="text" class="form-control" name="apellido" placeholder="Escribe tu/s apellido/s" pattern="[A-Za-z ]{1,100}" autofocus required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Escribe tus username favorito porfavor" autofocus>
+                            <input type="text" class="form-control" name="username" placeholder="Escribe tus username favorito" autofocus required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Correo</label>
-                            <input type="email" class="form-control" name="email"  placeholder="Tu correo porfavor">   
+                            <input type="email" class="form-control" name="email"  placeholder="nombre@dominio.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autofocus required>   
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
-                            <input type="password" name="passw" class="form-control" placeholder="Contraseña">
+                            <input type="password" name="passw" class="form-control" placeholder="Mínimo 8 carácteres" pattern=".{8,}" title="La contraseña debe ser mínimo de 8 carácteres, intentelo de nuevo." autofocus required>
                         </div>
                         <div class="mb-3">
                          <button type="submit" class="btn btn-success btn-block">Guardar</button>   

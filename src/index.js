@@ -44,7 +44,7 @@ app.use(session({
 }))
 
 //Middleware
-app.use(helmet());
+//app.use(helmet());
 app.use(flash());
 app.use(express.json());
 app.use(passport.initialize());

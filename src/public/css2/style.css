@@ -1,19 +1,61 @@
 
-
+@font-face{
+	font-family: roboto_bold;
+	src: url(Roboto-Bold.ttf)
+	
+	}
 @font-face{
 	font-family: cartoon;
 	src: url(/css/orangejuice2.0.ttf);
+}
+
+@font-face{
+	font-family: catalogo;
+	src: url(metropolis.bold.otf);
+}
+@font-face{
+	font-family: noticia;
+	src: url(iceland.regular.ttf);
+}
+
+
+
+
+
+
+.catalogo{
+	font-family: catalogo;	
+	font-size: 19px;
 	
 }
 
+.noticias{
+	font-family: noticia;	
+	font-size: auto;
+}
+
+
+.indexx{
+	font-family: catalogo;	
+	font-size: auto;
+}
+
+input,label {
+	font-size: auto;
+	font-family: catalogo;
+}
+
 h1 {
-font-size: 80px;
-font-family: cartoon;
+	font-size: 80px;
+	font-family: cartoon;
+	
 }
 
 .hotro {
-font-size: 60px;
-font-family: cartoon;
+	font-size: 80px;
+	font-family: cartoon;
+	text-align: center;
+	margin-top: 20px;
 }
 
 p {

@@ -1,9 +1,10 @@
-<div class="container">
-          <h1 class="center ">Catálogo</h1> 
+<div class="container-fluid">
+          <h1 class="hotro">Catálogo</h1> 
           <div class="row">
          
             {{#each games}}
-              <div class="card m3 s12 text-center" style="width: 18rem; Margin-left: 4rem;">
+            
+              <div class="card m3 s12 text-center" style="width: 18rem; Margin-left: 4rem; Margin-top: 2rem">
                 <a href="juegos/detalles/{{id_game}}">
                 <img
                     class="materialboxed responsive-img card-img-top"
@@ -13,9 +14,10 @@
                   />
                 </a>
                   <div class="card-body">
-                  <p class="card-text">{{nombre}}</p>
-                </div>
+                  <p class="card-title catalogo">{{nombre}}</p>
+                  </div>
               </div>
+              
             {{/each}}
           </div>
 </div>

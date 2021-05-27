@@ -38,7 +38,8 @@ router.post('/add', async(req, res) => {
         console.log(URL);
         util.promisify(file.mv)(URL);
         req.flash('Exitoso', 'Juego agregado al catálogo de manera exitosa');
-        res.render('catalogo');
+        const games = await pool.query('SELECT * FROM games')
+        res.render('juegos/list', { games });
     } catch (error) {
         console.log(error)
         res.status(500).json({
