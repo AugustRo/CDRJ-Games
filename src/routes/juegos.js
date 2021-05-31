@@ -37,9 +37,9 @@ router.post('/add', async(req, res) => {
         await pool.query('INSERT INTO games (nombre,descripcoin,img_url) VALUES ("' + nombre + '","' + descripcoin + '","' + name + '")');
         console.log(URL);
         util.promisify(file.mv)(URL);
-        req.flash('Exitoso', 'Juego agregado al catálogo de manera exitosa');
-        const games = await pool.query('SELECT * FROM games')
-        res.render('juegos/list', { games });
+        //const games = await pool.query('SELECT * FROM games')
+        req.flash('success', 'El juego ha sido agregado al catálogo de manera exitosa.');
+        res.redirect('add');
     } catch (error) {
         console.log(error)
         res.status(500).json({

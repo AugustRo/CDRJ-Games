@@ -32,9 +32,8 @@ app.engine('.hbs',exphbs({
 }));
 app.set('view engine', '.hbs');
 
-//Middleware
-app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
+
+
 
 app.use(session({
     secret: 'CDJRGAMES',
@@ -46,22 +45,11 @@ app.use(session({
 //Middleware
 //app.use(helmet());
 app.use(flash());
+app.use(morgan('dev'));
+app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use(session({
-    secret: 'CDRJ_GAMES',
-    resave: false,
-    saveUninitialized: false,
-    store: new MySQLStore(database)
-  }));
-
-
 
 //Variables globales
 app.use((req,res, next) => {
@@ -75,9 +63,9 @@ app.use(require('./routes'));
 app.use(require('./routes/authentication'));
 app.use('/juegos',require('./routes/juegos'));
 app.use('/login',require('./routes/login'));
-app.use('/signup', require('./routes/signup'));
+//app.use('/signup', require('./routes/authentication'));
 app.use('/mi_lista', require('./routes/mi_lista'));
-app.use('/profile', require('./routes/profile'));
+//app.use('/profile', require('./routes/profile'));
 //Archivos publicos
 app.use(express.static(path.join(__dirname,'public')));
 
@@ -99,9 +87,4 @@ https.createServer({
 //     console.log('Hello, I am foo.');
 //     res.render('index');
 // });
-//Variables globales
-app.use((req, res, next) => {
-    app.locals.success = req.flash('success');
-    app.locals.success = req.flash('message');
-    next();
-});
+
