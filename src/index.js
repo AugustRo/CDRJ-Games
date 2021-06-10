@@ -70,18 +70,18 @@ app.use('/mi_lista', require('./routes/mi_lista'));
 app.use(express.static(path.join(__dirname,'public')));
 
 //Comenzar servidor
-// app.listen(app.get('port'), ()=>{
-//     console.log('Servidor en el puerto:',app.get('port'));
-// });
+app.listen(app.get('port'), ()=>{
+    console.log('Servidor en el puerto:',app.get('port'));
+});
 
 //Servidor HTTPS
 
-https.createServer({
-    key: fs.readFileSync(__dirname + '/'+ 'my_cert.key'),
-    cert: fs.readFileSync(__dirname + '/'+ 'my_cert.crt')
-  }, app).listen(app.get('port'), ()=>{
-    console.log('Servidor en el puerto:',app.get('port'));
-});
+// https.createServer({
+//     key: fs.readFileSync(__dirname + '/'+ 'my_cert.key'),
+//     cert: fs.readFileSync(__dirname + '/'+ 'my_cert.crt')
+//   }, app).listen(app.get('port'), ()=>{
+//     console.log('Servidor en el puerto:',app.get('port'));
+// });
 
 // app.get('/', function(req, res){
 //     console.log('Hello, I am foo.');
