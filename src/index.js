@@ -67,7 +67,7 @@ app.use('/login',require('./routes/login'));
 app.use('/mi_lista', require('./routes/mi_lista'));
 //app.use('/profile', require('./routes/profile'));
 //Archivos publicos
-app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'/public')));
 
 //Comenzar servidor
 app.listen(app.get('port'), ()=>{
