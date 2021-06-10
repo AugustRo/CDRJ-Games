@@ -14,13 +14,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema database_cdjr_games
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `database_cdjr_games` DEFAULT CHARACTER SET utf8mb4 ;
-USE `database_cdjr_games` ;
+CREATE SCHEMA IF NOT EXISTS `heroku_c238f2dbe557831` DEFAULT CHARACTER SET utf8mb4 ;
+USE `heroku_c238f2dbe557831` ;
 
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`games`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games` (
+CREATE TABLE IF NOT EXISTS `heroku_c238f2dbe557831`.`games` (
   `id_game` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(150) NOT NULL,
   `descripcoin` VARCHAR(800) NOT NULL,
@@ -38,7 +38,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`comments`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`comments` (
+CREATE TABLE IF NOT EXISTS `heroku_c238f2dbe557831`.`comments` (
   `id_comment` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `comentario` MEDIUMTEXT NOT NULL,
   `game_id_game` INT(10) UNSIGNED NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`comments` (
   INDEX `fk_comments_games-list1_idx` (`game_id_game` ASC) ,
   CONSTRAINT `fk_comments_games-list1`
     FOREIGN KEY (`game_id_game`)
-    REFERENCES `database_cdjr_games`.`games` (`id_game`)
+    REFERENCES `heroku_c238f2dbe557831`.`games` (`id_game`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -56,7 +56,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`genres`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`genres` (
+CREATE TABLE IF NOT EXISTS `heroku_c238f2dbe557831`.`genres` (
   `id_genres` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id_genres`),
@@ -68,7 +68,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`users` (
+CREATE TABLE IF NOT EXISTS `heroku_c238f2dbe557831`.`users` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(150) NOT NULL,
   `apellido` VARCHAR(255) NOT NULL,
@@ -85,7 +85,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`lista`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`lista` (
+CREATE TABLE IF NOT EXISTS `heroku_c238f2dbe557831`.`lista` (
   `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `created_at` TIMESTAMP NULL DEFAULT NULL,
   `users_id` INT(11) NOT NULL,
@@ -96,12 +96,12 @@ CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`lista` (
   INDEX `fk_lista_games1_idx` (`games_id_game` ASC) ,
   CONSTRAINT `fk_links_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `database_cdjr_games`.`users` (`id`)
+    REFERENCES `heroku_c238f2dbe557831`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_lista_games1`
     FOREIGN KEY (`games_id_game`)
-    REFERENCES `database_cdjr_games`.`games` (`id_game`)
+    REFERENCES `heroku_c238f2dbe557831`.`games` (`id_game`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -111,7 +111,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`languages`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`languages` (
+CREATE TABLE IF NOT EXISTS `heroku_c238f2dbe557831`.`languages` (
   `id_language` INT NOT NULL AUTO_INCREMENT,
   `language` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id_language`),
@@ -122,7 +122,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`Plataformas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`Plataformas` (
+CREATE TABLE IF NOT EXISTS `heroku_c238f2dbe557831`.`Plataformas` (
   `id_plataforma` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(100) NULL,
   PRIMARY KEY (`id_plataforma`))
@@ -132,7 +132,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`games_has_genres`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games_has_genres` (
+CREATE TABLE IF NOT EXISTS `heroku_c238f2dbe557831`.`games_has_genres` (
   `games_id_game` INT(10) UNSIGNED NOT NULL,
   `genres_id_genres` INT(10) UNSIGNED NOT NULL,
   PRIMARY KEY (`games_id_game`, `genres_id_genres`),
@@ -140,12 +140,12 @@ CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games_has_genres` (
   INDEX `fk_games_has_genres_games1_idx` (`games_id_game` ASC) ,
   CONSTRAINT `fk_games_has_genres_games1`
     FOREIGN KEY (`games_id_game`)
-    REFERENCES `database_cdjr_games`.`games` (`id_game`)
+    REFERENCES `heroku_c238f2dbe557831`.`games` (`id_game`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_games_has_genres_genres1`
     FOREIGN KEY (`genres_id_genres`)
-    REFERENCES `database_cdjr_games`.`genres` (`id_genres`)
+    REFERENCES `heroku_c238f2dbe557831`.`genres` (`id_genres`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -155,7 +155,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`games_has_languages`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games_has_languages` (
+CREATE TABLE IF NOT EXISTS `heroku_c238f2dbe557831`.`games_has_languages` (
   `games_id_game` INT(10) UNSIGNED NOT NULL,
   `languages_id_language` INT NOT NULL,
   PRIMARY KEY (`games_id_game`, `languages_id_language`),
@@ -163,12 +163,12 @@ CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games_has_languages` (
   INDEX `fk_games_has_languages_games1_idx` (`games_id_game` ASC) ,
   CONSTRAINT `fk_games_has_languages_games1`
     FOREIGN KEY (`games_id_game`)
-    REFERENCES `database_cdjr_games`.`games` (`id_game`)
+    REFERENCES `heroku_c238f2dbe557831`.`games` (`id_game`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_games_has_languages_languages1`
     FOREIGN KEY (`languages_id_language`)
-    REFERENCES `database_cdjr_games`.`languages` (`id_language`)
+    REFERENCES `heroku_c238f2dbe557831`.`languages` (`id_language`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -178,7 +178,7 @@ DEFAULT CHARACTER SET = utf8mb4;
 -- -----------------------------------------------------
 -- Table `database_cdjr_games`.`games_has_Plataformas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games_has_Plataformas` (
+CREATE TABLE IF NOT EXISTS `dheroku_c238f2dbe557831`.`games_has_Plataformas` (
   `games_id_game` INT(10) UNSIGNED NOT NULL,
   `Plataformas_id_plataforma` INT NOT NULL,
   PRIMARY KEY (`games_id_game`, `Plataformas_id_plataforma`),
@@ -186,12 +186,12 @@ CREATE TABLE IF NOT EXISTS `database_cdjr_games`.`games_has_Plataformas` (
   INDEX `fk_games_has_Plataformas_games1_idx` (`games_id_game` ASC) ,
   CONSTRAINT `fk_games_has_Plataformas_games1`
     FOREIGN KEY (`games_id_game`)
-    REFERENCES `database_cdjr_games`.`games` (`id_game`)
+    REFERENCES `heroku_c238f2dbe557831`.`games` (`id_game`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_games_has_Plataformas_Plataformas1`
     FOREIGN KEY (`Plataformas_id_plataforma`)
-    REFERENCES `database_cdjr_games`.`Plataformas` (`id_plataforma`)
+    REFERENCES `heroku_c238f2dbe557831`.`Plataformas` (`id_plataforma`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
