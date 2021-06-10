@@ -52,7 +52,7 @@ h1 {
 }
 
 .hotro {
-	font-size: 80px;
+	font-size: auto;
 	font-family: cartoon;
 	text-align: center;
 	margin-top: 20px;
