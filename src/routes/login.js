@@ -39,9 +39,9 @@ passport.use('user.login', new LocalStrategy({
 }));
 
 
-router.get('/',(req, res) => {
-    res.render('user/login');
-});
+// router.get('/',(req, res) => {
+//     res.render('user/login');
+// });
 
 router.post('/user',(req, res, next) => {
   passport.authenticate('user.login', {

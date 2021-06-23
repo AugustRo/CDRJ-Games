@@ -17,11 +17,22 @@
 	font-family: noticia;
 	src: url(iceland.regular.ttf);
 }
+@font-face{
+	font-family: arcade;
+	src: url(karmatic-arcade.regular.ttf);
+}
+
+@font-face{
+	font-family: arcade2;
+	src: url(joystix.monospace.ttf);
+}
 
 
-
-
-
+.arcade{
+	font-family: arcade;	
+	font-size: 19px;
+	
+}
 
 .catalogo{
 	font-family: catalogo;	
@@ -47,13 +58,13 @@ input,label {
 
 h1 {
 	font-size: auto;
-	font-family: cartoon;
+	font-family: arcade2;
 	
 }
 
 .hotro {
 	font-size: auto;
-	font-family: cartoon;
+	font-family: arcade2;
 	text-align: center;
 	margin-top: 20px;
 }
