@@ -286,7 +286,7 @@ img::-moz-selection{color:#fff;background:0 0}
 }
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 370px) {
   :root {
     --color-primary: #1b2631;
     --color-secondary: #fbfcfc;
