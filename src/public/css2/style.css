@@ -4,10 +4,6 @@
 	src: url(Roboto-Bold.ttf)
 	
 	}
-@font-face{
-	font-family: cartoon;
-	src: url(/css/orangejuice2.0.ttf);
-}
 
 @font-face{
 	font-family: catalogo;
@@ -28,9 +24,10 @@
 }
 
 
+
 .arcade{
 	font-family: arcade;	
-	font-size: 19px;
+	font-size: 30px;
 	
 }
 
