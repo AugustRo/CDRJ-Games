@@ -32,9 +32,6 @@ app.engine('.hbs',exphbs({
 }));
 app.set('view engine', '.hbs');
 
-
-
-
 app.use(session({
     secret: 'CDJRGAMES',
     resave: false,
@@ -54,22 +51,19 @@ app.use(passport.session());
 //Variables globales
 app.use((req,res, next) => {
     app.locals.message = req.flash('message');
-    app.locals.success = req.flash('success');    
+    app.locals.success = req.flash('success'); 
+    app.locals.user = req.user;   
     next();
 })
 
-//Rutas
+//Rutas para la página
 app.use(require('./routes'));
 app.use(require('./routes/authentication'));
 app.use('/juegos',require('./routes/juegos'));
-app.use('/login',require('./routes/login'));
-//app.use('/signup', require('./routes/authentication'));
 app.use('/mi_lista', require('./routes/mi_lista'));
-//app.use('/profile', require('./routes/profile'));
-//Archivos publicos
 app.use(express.static(path.join(__dirname,'/public')));
 
-//Comenzar servidor
+//Servidor HTTP
 app.listen(app.get('port'), ()=>{
     console.log('Servidor en el puerto:',app.get('port'));
 });

@@ -3,6 +3,37 @@ const LocalStrategy = require('passport-local').Strategy;
 const pool =require('../database');
 const helpers = require('../lib/helpers');
 
+//LOGIN
+passport.use('user.login', new LocalStrategy({
+  usernameField: 'nombre',
+  passwordField: 'passw',
+  passReqToCallback: true
+}, async(req, nombre, passw, done) => {
+
+  console.log(req.body);
+  const rows = await pool.query('SELECT * FROM users WHERE username = ?', [nombre]);
+  if(rows.length > 0)
+  {
+    const user = rows[0];
+    const validPassword = await helpers.matchPassword(passw, user.passw);
+    
+    if (validPassword) {
+      done(null, user, req.flash('success','Bienvenido: ' + user.username));
+      console.log('LOGIN CORRECTO');
+    }else
+    {
+      done(null, false, req.flash('message','Usuario o contraseña incorrectos.'));
+      console.log('LOGIN INCORRECTO');
+    }
+  }else
+  {
+    // console.log('El username no existe.');
+    return done(null, false, req.flash('message','Usuario no encontrado.'));
+    
+  }
+}));
+
+//REGISTRO
 passport.use('user.signup', new LocalStrategy({
     usernameField: 'username',
     passwordField: 'passw',

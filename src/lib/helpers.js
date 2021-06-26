@@ -14,8 +14,8 @@ helpers.matchPassword = async (password, savedPassword) => {
     //req.flash('success','¡Bienvenido, sesión iniciada!');
     return await bcrypt.compare(password, savedPassword);
   } catch (e) {
-    req.flash('message','Datos incorrectos, intentlo de nuevo.');
-    console.log(e)
+    req.flash('message','Datos incorrectos, intenta de nuevo.');
+    console.log(e);
   }
 };
 

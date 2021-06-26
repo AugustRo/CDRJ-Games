@@ -3,9 +3,11 @@
         <div class="col-md-4 mx-auto">
             <div class="card text-center">
                 <div class="card-body">
-                    <h3>Bienvenido {{user.fullname}}</h3>
-                    <h4>{{users.usamerne}}</h4>
-                        <strong>HOLA</strong>
+                    <h3>{{user.nombre}} {{user.apellido}}</h3>
+                    <h4>{{user.username}}</h4>
+                       <form method="get" action="/mi_lista">
+                            <button type="submit" class="btn btn-success btn-block">Mi lista</button>
+                        </form>
                 </div>
             </div>
         </div>

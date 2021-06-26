@@ -1,4 +1,71 @@
 <!-- Header -->
+{{#if user}}
+<div class="container-fluid" id="header">
+<input id="page-nav-toggle" class="main-navigation-toggle" type="checkbox" />
+<label for="page-nav-toggle">
+  <svg class="icon--menu-toggle" viewBox="0 0 60 30">
+    <g class="icon-group">
+      <g class="icon--menu">
+        <path d="M 3 0 L 40 0" />
+        <path d="M 3 11 L 40 11" />
+        <path d="M 3 22 L 40 22" />
+      </g>
+      <g class="icon--close">
+        <path d="M 15 0 L 40 25" />
+        <path d="M 15 25 L 40 0" />
+      </g>
+    </g>
+  </svg>
+</label>
+
+<nav class="main-navigation">
+  <ul>
+    <li><a href="#0"><img src="css/logo.webp" style="width: 65%; height: 65%;"></a></li>
+    <li><a href="/profile">Perfil</a></li>
+    <li><a href="/mi_lista">Mi lista</a></li>
+    {{!-- <li><a href="#0">Otra cosa</a></li> --}}
+    <li><a href="#0">Cerrar Sesión</a></li>
+  </ul>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="margin-left: 5%;"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link arcade hea1" aria-current="page" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link arcade hea2" href="/juegos">Juegos</a>
+        </li>
+        {{!-- <li class="nav-item">
+          <a class="nav-link arcade hea3" href="/login">Login</a>
+        </li> --}}
+        <li class="nav-item">
+          <a class="nav-link arcade hea4" href="/profile">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link arcade hea4" href="/salir">Salir</a>
+        </li>
+        
+        
+      </ul>
+      {{!-- <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="¿Qué buscas hoy?" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form> --}}
+    </div>
+  </div>
+
+  
+</nav>
+</div>      
+ 
+{{else}}     
 <div class="container-fluid" id="header">
 <input id="page-nav-toggle" class="main-navigation-toggle" type="checkbox" />
 <label for="page-nav-toggle">
@@ -21,9 +88,9 @@
   <ul>
     <li><a href="#0"><img src="css/logo.webp" style="width: 65%; height: 65%;"></a></li>
     <li><a href="/profile">Usuario</a></li>
-    <li><a href="#0">Cerrar Sesión</a></li>
-    <li><a href="/mi_lista">Mi lista</a></li>
-    <li><a href="#0">Otra cosa</a></li>
+    <li><a href="#0">Iniciar Sesión</a></li>
+    <li><a href="/mi_lista">Juegos</a></li>
+    {{!-- <li><a href="#0">Otra cosa</a></li> --}}
   </ul>
 </nav>
 
@@ -48,6 +115,7 @@
           <a class="nav-link arcade hea4" href="/signup">Registro</a>
         </li>
         
+        
       </ul>
       {{!-- <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="¿Qué buscas hoy?" aria-label="Search">
@@ -59,3 +127,4 @@
   
 </nav>
 </div>
+{{/if}}  
