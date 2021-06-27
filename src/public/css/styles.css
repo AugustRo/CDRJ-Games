@@ -10,6 +10,10 @@
   /* background-color:#e74c3c !important; */
 }
 
+.responsive-img{
+  max-width: 100% !important;
+  /* height: auto !important; */
+}
 /*-------------------------------------- 0px ---------------------------------------------------- */
 
 
@@ -42,11 +46,26 @@ h1 {
   line-height: calc(var(--line-height) / 1.25); }
 
  .botonColor{
+   margin-bottom: ;
    color: white;
   background-color:#00aac4 !important;
   border-color:#00aac4 !important;
   box-shadow:#016d7e !important;
  } 
+
+.botonColor2{
+  color: white;
+ background-color:#2098aa !important; 
+ border-color:#00aac4 !important;
+ box-shadow:#016d7e !important;
+}
+
+.botonColor2:hover{
+  color: white;
+  background-color:#b639b5 !important; 
+  border-color:#3a8c99 !important;
+  box-shadow:#016d7e !important;
+} 
 
  .botonColor:hover{
   color: white;
@@ -54,6 +73,7 @@ h1 {
   border-color:#3a8c99 !important;
   box-shadow:#016d7e !important;
  } 
+ 
  .botonColor:active:focus:disabled:success:checked{
   color: white;
   background-color:#188b9c !important;
@@ -342,6 +362,21 @@ img::-moz-selection{color:#fff;background:0 0}
     border-color:#3a8c99 !important;
     box-shadow:#016d7e !important;
    } 
+
+   .botonColor2{
+    color: white;
+   background-color:#2098aa !important; 
+   border-color:#00aac4 !important;
+   box-shadow:#016d7e !important;
+  }
+  
+  .botonColor2:hover{
+    color: white;
+    background-color:#b639b5 !important; 
+    border-color:#3a8c99 !important;
+    box-shadow:#016d7e !important;
+  } 
+
    .botonColor:active:focus:disabled:success:checked{
     color: white;
     background-color:#188b9c !important;
@@ -635,7 +670,22 @@ img::-moz-selection{color:#fff;background:0 0}
       background-color:#2098aa !important;
       border-color:#3a8c99 !important;
       box-shadow:#016d7e !important;
-     } 
+     }
+     
+     .botonColor2{
+      color: white;
+     background-color:#2098aa !important; 
+     border-color:#00aac4 !important;
+     box-shadow:#016d7e !important;
+    }
+    
+    .botonColor2:hover{
+      color: white;
+      background-color:#b639b5 !important; 
+      border-color:#3a8c99 !important;
+      box-shadow:#016d7e !important;
+    } 
+
      .botonColor:active:focus:disabled:success:checked{
       color: white;
       background-color:#188b9c !important;
@@ -933,6 +983,20 @@ img::-moz-selection{color:#fff;background:0 0}
     border-color:#3a8c99 !important;
     box-shadow:#016d7e !important;
    } 
+   .botonColor2{
+    color: white;
+   background-color:#2098aa !important; 
+   border-color:#00aac4 !important;
+   box-shadow:#016d7e !important;
+  }
+  
+  .botonColor2:hover{
+    color: white;
+    background-color:#b639b5 !important; 
+    border-color:#3a8c99 !important;
+    box-shadow:#016d7e !important;
+  } 
+
    .botonColor:active:focus:disabled:success:checked{
     color: white;
     background-color:#188b9c !important;

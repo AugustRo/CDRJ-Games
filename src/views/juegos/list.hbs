@@ -1,10 +1,34 @@
-<div class="container-fluid">
+<div class="container">
           <h1 class="hotro">Catálogo</h1> 
           <div class="row">
-         
+            {{#if user}}
             {{#each games}}
-            
-              <div class="card m3 s12 text-center" style="width: 18rem; Margin-left: 4rem; Margin-top: 2rem">
+              <div class="card m3 s12 text-center mx-auto" style="width: 18rem; Margin-top: 1rem; Margin-bottom: 2rem;">
+                <a href="juegos/detalles/{{id_game}}">
+                <img
+                    class="responsive-img card-img-top"
+                    src="/catalogo/{{img_url}}"
+                    alt="{{nombre}}"
+                    style="width: 292px; height: 363px;"
+                  />
+                </a>
+                  <div class="card-body">
+                  <p class="card-title catalogo">{{nombre}}</p>
+                  
+                   <form action="mi_lista/add/{{id_game}}" method="POST">
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn botonColor2">
+                                Agregar a mi lista
+                            </button>  
+                        </div> 
+                    </form>
+                  
+                  </div>
+              </div>
+            {{/each}}
+            {{else}}
+            {{#each games}}
+              <div class="card m3 s12 text-center mx-auto" style="width: 18rem; Margin-left: 6rem; Margin-top: 2rem">
                 <a href="juegos/detalles/{{id_game}}">
                 <img
                     class="materialboxed responsive-img card-img-top"
@@ -14,10 +38,10 @@
                   />
                 </a>
                   <div class="card-body">
-                  <p class="card-title catalogo">{{nombre}}</p>
+                  <p class="card-title catalogo">{{nombre}}</p>                  
                   </div>
               </div>
-              
             {{/each}}
+            {{/if}}
           </div>
 </div>

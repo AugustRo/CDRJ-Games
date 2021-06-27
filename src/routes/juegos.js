@@ -35,7 +35,7 @@ router.post('/add', async(req, res) => {
         const descripcoin = req.body.descripcoin;
         const URL = "./src/public/catalogo/" + name;
         await pool.query('INSERT INTO games (nombre,descripcoin,img_url) VALUES ("' + nombre + '","' + descripcoin + '","' + name + '")');
-        console.log(URL);
+        // console.log(URL);
         util.promisify(file.mv)(URL);
         //const games = await pool.query('SELECT * FROM games')
         req.flash('success', 'El juego ha sido agregado al catálogo de manera exitosa.');
@@ -50,15 +50,18 @@ router.post('/add', async(req, res) => {
 
 //Ruta que lee los juegos
 router.get('/', async(req, res) => {
-    const games = await pool.query('SELECT * FROM games')
+    const games = await pool.query('SELECT * FROM games');
     res.render('juegos/list', { games });
+    
 });
 
 router.get('/detalles/:id', async(req, res) => {
     id_game = req.params.id;
     const game = await pool.query('SELECT * FROM games WHERE id_game =' + id_game);
-    console.log(game);
+    // console.log(game);
     res.render('juegos/detalles', { game });
 });
+
+
 
 module.exports = router;

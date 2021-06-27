@@ -6,3 +6,4 @@ module.exports = {
     database: 'heroku_c238f2dbe557831'
     }
 }
+
