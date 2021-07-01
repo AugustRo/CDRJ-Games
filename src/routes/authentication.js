@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const {isLoggedIn} = require('../lib/auth');
+const {isLoggedIn, isNotLoggedIn} = require('../lib/auth');
 //REGISTRO
 
 router.get('/signup', (req, res) => {
     res.render('user/signup');
 });
 
-router.post('/signup', passport.authenticate('user.signup', {
+router.post('/signup',isNotLoggedIn, passport.authenticate('user.signup', {
     successRedirect: '/profile',
     failureRedirect: '/signup',
     failureFlash: true
@@ -16,7 +16,7 @@ router.post('/signup', passport.authenticate('user.signup', {
 
 //LOGIN
 
-router.get('/login',(req, res) => {
+router.get('/login',isNotLoggedIn,(req, res) => {
     res.render('user/login');
 });
 

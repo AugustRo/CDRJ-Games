@@ -39,5 +39,14 @@ router.post('/add/:id',isLoggedIn, async(req, res) => {
     }
 });
 
+router.post('/delete/:id',isLoggedIn, async(req, res) => {
+    const id_game = req.params.id;
+    const user_id = req.user.id; 
+    await pool.query('DELETE FROM mi_lista WHERE user_id = ? AND id_game = ?',[user_id,id_game])
+    req.flash('success', 'El juego ha sido eliminado de su lista de manera exitosa.');
+    res.redirect('../');
+    
+});
+
 
 module.exports = router;

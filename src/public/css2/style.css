@@ -947,8 +947,8 @@ ol {
 
 .juegos__details__pic {
 	height: 540px;
-	width: auto;
-	border-radius: 5px;
+	width: auto !important;
+	border-radius: 5px; */
 	position: relative;
 }
 
@@ -1015,6 +1015,8 @@ ol {
 
 .juegos__details__widget {
 	margin-bottom: 15px;
+	text-align: left;
+	margin-left: 50px;
 }
 
 .juegos__details__widget ul {

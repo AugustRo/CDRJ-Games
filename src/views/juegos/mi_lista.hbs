@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="mi_lista">
           <h1 class="hotro">Mi Catálogo</h1> 
           <div class="row">
             {{#if user}}
@@ -15,10 +15,10 @@
                   <div class="card-body">
                   <p class="card-title catalogo">{{nombre}}</p>
                   
-                   <form action="/add/lista/{{id_game}}" method="POST">
+                   <form action="mi_lista/delete/{{id_game}}" method="POST">
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn botonColor2">
-                                Agregar a mi lista
+                                Eliminar de mi lista
                             </button>  
                         </div> 
                     </form>

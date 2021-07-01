@@ -6,7 +6,8 @@
   margin-top:7px;
 }
 .footer-text{
-  color:#e74c3c !important;
+  color:#ecd345 !important;
+  font-size: roboto_bold;
   /* background-color:#e74c3c !important; */
 }
 
@@ -63,6 +64,21 @@ h1 {
 .botonColor2:hover{
   color: white;
   background-color:#b639b5 !important; 
+  border-color:#3a8c99 !important;
+  box-shadow:#016d7e !important;
+} 
+
+.botonColor3{
+  margin-top: 20px;
+  color: white;
+ background-color:#c144d1 !important; 
+ border-color:#00aac4 !important;
+ box-shadow:#016d7e !important;
+}
+
+.botonColor3:hover{
+  color: white;
+  background-color:#703570 !important; 
   border-color:#3a8c99 !important;
   box-shadow:#016d7e !important;
 } 
@@ -1251,7 +1267,28 @@ img::-moz-selection{color:#fff;background:0 0}
   margin-bottom: 303px;
 }
 
+#detalles{
+  margin-bottom: 152px;
+  margin-top:50px;
+}
+#profile{
+  margin-bottom: 362px;
+  margin-top:150px;
+}
+
 #registro{
   margin-bottom: 18px;
 }
+
+#card-profile{
+
+}
+
+#p1{
+ margin-top: 15px; 
+}
+#mi_lista{
+  margin-bottom: 42px;
+}
+
 }
